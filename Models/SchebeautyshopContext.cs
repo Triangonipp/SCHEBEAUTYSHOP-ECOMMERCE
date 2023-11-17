@@ -14,6 +14,9 @@ namespace Schebeautyshop.Models
         public DbSet<Productos> Productos { get; set; } 
         public DbSet<CategoriasP> categoriasPs { get; set; }    
 
+        public DbSet<CategoriasS> categoriasS { get; set;}
+        public DbSet<Servicios> Servicios { get; set; } 
+
     }
 
 }
