@@ -14,7 +14,6 @@ namespace Schebeautyshop.Models
             using (var serviceScope = applicationBuilder.ApplicationServices.CreateScope())
             {
                 var context = serviceScope.ServiceProvider.GetService<SchebeautyshopContext>();
-
                 context.Database.EnsureCreated();
 
                 // CategoriasS
@@ -41,21 +40,21 @@ namespace Schebeautyshop.Models
                         {
                             Nombre = "Servicio 1",
                             Descripcion = "Descripción del Servicio 1",
-                            Precio_S = 15.2,
+                            Precio_S = 10,
                             Duracion = "1 hora",
                             Sesiones = 1,
                             FechayHoraDisponible = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
-                            CategoriasS = categoriaCorteCabello // Asigna la primera categoría ficticia
+                            CategoriasSID = 2 // Asigna la primera categoría ficticia
                         },
                         new Servicios
                         {
                             Nombre = "Servicio 2",
                             Descripcion = "Descripción del Servicio 2",
-                            Precio_S = 9.99,
+                            Precio_S = 15,
                             Duracion = "45 minutos",
-                            Sesiones = 2,
+                            Sesiones = 1,
                             FechayHoraDisponible = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
-                            CategoriasS = categoriaManicura // Asigna la segunda categoría ficticia
+                            CategoriasSID = 1 // Asigna la segunda categoría ficticia
                         }
                     };
                     context.Servicios.AddRange(servicios);

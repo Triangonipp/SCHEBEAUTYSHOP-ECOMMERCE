@@ -14,7 +14,8 @@ namespace Schebeautyshop.Models
         public string Descripcion { get; set; }
 
         [Display(Name = "Precio")]
-        public double? Precio_S { get; set; }
+        [Column(TypeName = "decimal(18, 2)")]
+        public int Precio_S { get; set; }
         public string Duracion { get; set; }
 
         public int Sesiones { get; set; }
