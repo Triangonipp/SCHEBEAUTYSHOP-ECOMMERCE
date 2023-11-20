@@ -41,7 +41,7 @@ namespace Schebeautyshop.Models
                         {
                             Nombre = "Servicio 1",
                             Descripcion = "Descripción del Servicio 1",
-                            Precio_S = 10.99,
+                            Precio_S = 15.2,
                             Duracion = "1 hora",
                             Sesiones = 1,
                             FechayHoraDisponible = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
@@ -51,9 +51,9 @@ namespace Schebeautyshop.Models
                         {
                             Nombre = "Servicio 2",
                             Descripcion = "Descripción del Servicio 2",
-                            Precio_S = 15.50,
+                            Precio_S = 9.99,
                             Duracion = "45 minutos",
-                            Sesiones = 1,
+                            Sesiones = 2,
                             FechayHoraDisponible = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
                             CategoriasS = categoriaManicura // Asigna la segunda categoría ficticia
                         }

@@ -6,15 +6,19 @@ namespace Schebeautyshop.Controllers
 {
     public class ServiciosController : Controller
     {
+
+
         private readonly SchebeautyshopContext _context;
+
         public ServiciosController(SchebeautyshopContext context)
         {
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            var data = _context.Servicios.ToList(); return View();
+            var servicios = _context.Servicios.ToList();
+            return View(servicios); // Pasa los servicios a la vista
         }
     }
 }

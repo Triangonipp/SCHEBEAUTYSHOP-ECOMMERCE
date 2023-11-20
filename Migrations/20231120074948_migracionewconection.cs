@@ -5,13 +5,13 @@
 namespace Schebeautyshop.Migrations
 {
     /// <inheritdoc />
-    public partial class InitDB : Migration
+    public partial class migracionewconection : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "categoriasPs",
+                name: "CategoriasPs",
                 columns: table => new
                 {
                     CategoriasPID = table.Column<int>(type: "int", nullable: false)
@@ -20,11 +20,11 @@ namespace Schebeautyshop.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_categoriasPs", x => x.CategoriasPID);
+                    table.PrimaryKey("PK_CategoriasPs", x => x.CategoriasPID);
                 });
 
             migrationBuilder.CreateTable(
-                name: "categoriasS",
+                name: "CategoriasS",
                 columns: table => new
                 {
                     CategoriasSID = table.Column<int>(type: "int", nullable: false)
@@ -33,7 +33,7 @@ namespace Schebeautyshop.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_categoriasS", x => x.CategoriasSID);
+                    table.PrimaryKey("PK_CategoriasS", x => x.CategoriasSID);
                 });
 
             migrationBuilder.CreateTable(
@@ -44,7 +44,7 @@ namespace Schebeautyshop.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Precio_p = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Precio_p = table.Column<double>(type: "float", nullable: true),
                     Stock = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CategoriasPID = table.Column<int>(type: "int", nullable: false)
                 },
@@ -52,9 +52,9 @@ namespace Schebeautyshop.Migrations
                 {
                     table.PrimaryKey("PK_Productos", x => x.ProductID);
                     table.ForeignKey(
-                        name: "FK_Productos_categoriasPs_CategoriasPID",
+                        name: "FK_Productos_CategoriasPs_CategoriasPID",
                         column: x => x.CategoriasPID,
-                        principalTable: "categoriasPs",
+                        principalTable: "CategoriasPs",
                         principalColumn: "CategoriasPID",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -67,7 +67,7 @@ namespace Schebeautyshop.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Precio_S = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Precio_S = table.Column<double>(type: "float", nullable: true),
                     Duracion = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Sesiones = table.Column<int>(type: "int", nullable: false),
                     FechayHoraDisponible = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -77,9 +77,9 @@ namespace Schebeautyshop.Migrations
                 {
                     table.PrimaryKey("PK_Servicios", x => x.ServicioID);
                     table.ForeignKey(
-                        name: "FK_Servicios_categoriasS_CategoriasSID",
+                        name: "FK_Servicios_CategoriasS_CategoriasSID",
                         column: x => x.CategoriasSID,
-                        principalTable: "categoriasS",
+                        principalTable: "CategoriasS",
                         principalColumn: "CategoriasSID",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -105,10 +105,10 @@ namespace Schebeautyshop.Migrations
                 name: "Servicios");
 
             migrationBuilder.DropTable(
-                name: "categoriasPs");
+                name: "CategoriasPs");
 
             migrationBuilder.DropTable(
-                name: "categoriasS");
+                name: "CategoriasS");
         }
     }
 }

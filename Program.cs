@@ -5,23 +5,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+//Conexion Db
 builder.Services.AddDbContext<SchebeautyshopContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("DbSchebeautyshop"))
-);
-
-
-
+    options.UseSqlServer("name=ConnectionStrings:Coneccion"));
 
 var app = builder.Build();
 
-
-using (var scope = app.Services.CreateScope())
-{
- var dataContext = scope.ServiceProvider.GetRequiredService<SchebeautyshopContext>();
-    dataContext.Database.Migrate();  
-
-}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -43,6 +32,5 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
-DatabaseInitializer.Seed(app);
 
 

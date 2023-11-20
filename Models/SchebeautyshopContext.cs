@@ -1,11 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Schebeautyshop.Models
 {
-    public class SchebeautyshopContext : Microsoft.EntityFrameworkCore.DbContext
+    public class SchebeautyshopContext : DbContext
     {
-        public SchebeautyshopContext(DbContextOptions<SchebeautyshopContext> options) 
-            : base(options)
+        public SchebeautyshopContext(DbContextOptions<SchebeautyshopContext> options) : base(options)
         {
 
 
@@ -13,11 +13,12 @@ namespace Schebeautyshop.Models
 
         public DbSet<Productos> Productos { get; set; } 
         public DbSet<CategoriasP> CategoriasPs { get; set; }    
-
         public DbSet<CategoriasS> CategoriasS { get; set;}
-        public DbSet<Servicios> Servicios { get; set; } 
+        public DbSet<Servicios> Servicios { get; set; }
 
     }
+
+
 
 
 }
